@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-80 40 1170 660" font-family="'Manrope','Segoe UI',sans-serif">
+  <!-- Original illustration for MB H2O: gręžinys vs šulinys cross-section -->
+  <defs>
+    <pattern id="brick" width="22" height="12" patternUnits="userSpaceOnUse">
+      <rect width="22" height="12" fill="#b0673f"/>
+      <path d="M0,0 H22 M0,6 H22 M11,0 V6 M5,6 V12 M16,6 V12" stroke="#8a4c2c" stroke-width="1.4" fill="none"/>
+    </pattern>
+    <pattern id="waterdots" width="16" height="12" patternUnits="userSpaceOnUse">
+      <rect width="16" height="12" fill="#7cc7ef"/>
+      <circle cx="4" cy="4" r="1.6" fill="#aadcf7"/>
+      <circle cx="12" cy="9" r="1.6" fill="#aadcf7"/>
+    </pattern>
+    <pattern id="deepwater" width="16" height="12" patternUnits="userSpaceOnUse">
+      <rect width="16" height="12" fill="#4aa3e0"/>
+      <circle cx="5" cy="5" r="1.6" fill="#86c8f0"/>
+      <circle cx="13" cy="10" r="1.6" fill="#86c8f0"/>
+    </pattern>
+    <pattern id="sand" width="14" height="14" patternUnits="userSpaceOnUse">
+      <rect width="14" height="14" fill="#e8d59a"/>
+      <circle cx="3" cy="4" r="1" fill="#cdb578"/>
+      <circle cx="10" cy="9" r="1" fill="#cdb578"/>
+      <circle cx="6" cy="12" r="1" fill="#cdb578"/>
+    </pattern>
+    <pattern id="lime" width="26" height="14" patternUnits="userSpaceOnUse">
+      <rect width="26" height="14" fill="#c8cfd6"/>
+      <path d="M0,7 H26 M0,14 H26 M13,0 V7 M6,7 V14 M20,7 V14" stroke="#a9b2bb" stroke-width="1.2" fill="none"/>
+    </pattern>
+  </defs>
+
+  <!-- ================= ground block ================= -->
+  <g stroke="none">
+    <rect x="130" y="196" width="660" height="46"  fill="#8a5a3b"/>                    <!-- dirva -->
+    <rect x="130" y="242" width="660" height="44"  fill="#aee0f7"/>                    <!-- virsutinis vanduo -->
+    <rect x="130" y="286" width="660" height="58"  fill="url(#sand)"/>                 <!-- smelis -->
+    <rect x="130" y="344" width="660" height="52"  fill="url(#lime)"/>                 <!-- kalkakmenis -->
+    <rect x="130" y="396" width="660" height="64"  fill="url(#waterdots)"/>            <!-- gruntinis vanduo -->
+    <rect x="130" y="460" width="660" height="42"  fill="#c07a4a"/>                    <!-- molis -->
+    <rect x="130" y="502" width="660" height="62"  fill="url(#deepwater)"/>            <!-- gilusis vanduo -->
+    <rect x="130" y="564" width="660" height="76"  fill="#6b4a33"/>                    <!-- gruntas -->
+    <rect x="130" y="184" width="660" height="14" rx="6" fill="#5cb85c"/>              <!-- žolė -->
+    <rect x="130" y="184" width="660" height="456" rx="6" fill="none" stroke="#16263c" stroke-width="2"/>
+  </g>
+
+  <!-- ================= tree ================= -->
+  <g>
+    <rect x="466" y="150" width="10" height="38" rx="3" fill="#7a5230"/>
+    <circle cx="471" cy="128" r="30" fill="#4d9e57"/>
+    <circle cx="448" cy="142" r="20" fill="#5cb85c"/>
+    <circle cx="494" cy="142" r="20" fill="#5cb85c"/>
+  </g>
+
+  <!-- ================= gręžinys (left, deep) ================= -->
+  <g>
+    <rect x="272" y="140" width="36" height="26" rx="4" fill="#2a5ca3"/>               <!-- wellhead -->
+    <rect x="284" y="166" width="12" height="22" fill="#9db4cf"/>
+    <rect x="282" y="184" width="16" height="330" fill="#e9eef5" stroke="#16263c" stroke-width="1.6"/> <!-- casing -->
+    <rect x="284" y="368" width="12" height="144" fill="#31b7e9"/>                     <!-- vandens stulpas -->
+    <g stroke="#16263c" stroke-width="1.2">                                            <!-- filtras -->
+      <rect x="282" y="514" width="16" height="40" fill="#31b7e9"/>
+      <path d="M282,522 H298 M282,530 H298 M282,538 H298 M282,546 H298"/>
+    </g>
+    <path d="M290,400 V330 M290,330 l-5,9 M290,330 l5,9" stroke="#2a5ca3" stroke-width="3" fill="none"/> <!-- srautas -->
+  </g>
+
+  <!-- ================= šulinys (right, shallow) ================= -->
+  <g>
+    <rect x="596" y="196" width="52" height="76" fill="url(#brick)" stroke="#16263c" stroke-width="1.6"/> <!-- šachta -->
+    <rect x="600" y="250" width="44" height="22" fill="#31b7e9"/>                      <!-- vanduo šuliny -->
+    <rect x="590" y="150" width="64" height="38" fill="url(#brick)" stroke="#16263c" stroke-width="1.6"/> <!-- antžeminė dalis -->
+    <path d="M584,150 L622,118 L660,150 Z" fill="#8a4c2c" stroke="#16263c" stroke-width="1.6"/>          <!-- stogelis -->
+    <line x1="622" y1="132" x2="622" y2="150" stroke="#16263c" stroke-width="2"/>
+    <circle cx="622" cy="156" r="5" fill="#e9eef5" stroke="#16263c" stroke-width="1.4"/>                 <!-- suktuvas -->
+  </g>
+
+  <!-- ================= gylio žymos ================= -->
+  <g font-size="15" fill="#53637a" font-style="italic">
+    <text x="656" y="290">10–15 m</text>
+    <text x="308" y="556">50–200 m</text>
+  </g>
+
+  <!-- ================= etiketės kairėje (gręžinys) ================= -->
+  <g font-size="17" font-weight="600" fill="#16263c" text-anchor="end">
+    <text x="118" y="150">Vandens gręžinys</text>
+    <text x="118" y="228">Vamzdynas</text>
+    <text x="118" y="380">Vandens lygis</text>
+    <text x="118" y="536">Filtras</text>
+  </g>
+  <g stroke="#53637a" stroke-width="1.4" fill="none">
+    <path d="M122,145 H268 V148"/>
+    <path d="M122,223 H278"/>
+    <path d="M122,375 H280"/>
+    <path d="M122,531 H278"/>
+  </g>
+
+  <!-- ================= etiketės dešinėje (sluoksniai) ================= -->
+  <g font-size="17" font-weight="600" fill="#16263c">
+    <text x="806" y="140">Šulinys</text>
+    <text x="806" y="224">Dirvos sluoksnis</text>
+    <text x="806" y="268">Viršutinis vandens sluoksnis</text>
+    <text x="806" y="320">Smėlis</text>
+    <text x="806" y="374">Kalkakmenis</text>
+    <text x="806" y="432">Gruntinis vandens sluoksnis</text>
+    <text x="806" y="486">Molis</text>
+    <text x="806" y="538">Gilusis vandens sluoksnis</text>
+    <text x="806" y="606">Grunto sluoksnis</text>
+  </g>
+  <g stroke="#53637a" stroke-width="1.4" fill="none">
+    <path d="M802,135 H664 L654,142"/>
+    <path d="M802,219 H790"/>
+    <path d="M802,263 H790"/>
+    <path d="M802,315 H790"/>
+    <path d="M802,369 H790"/>
+    <path d="M802,427 H790"/>
+    <path d="M802,481 H790"/>
+    <path d="M802,533 H790"/>
+    <path d="M802,601 H790"/>
+  </g>
+</svg>
