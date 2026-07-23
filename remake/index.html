@@ -226,9 +226,9 @@ footer { background: var(--navy); color: #9db4cf; padding: 2rem 0; font-size: 0.
   <section class="stats" id="skaiciai">
     <div class="wrap">
       <div class="stats-grid">
-        <!-- TODO: confirm real figures with Antanas before go-live -->
-        <div class="stat reveal"><div class="num"><span class="count" data-target="150">0</span>+</div><div class="lbl">Įrengtų gręžinių</div></div>
-        <div class="stat reveal"><div class="num"><span class="count" data-target="10">0</span>+</div><div class="lbl">Metų patirties</div></div>
+        <div class="stat reveal"><div class="num"><span class="count" data-target="73">0</span></div><div class="lbl">Įrengti gręžiniai</div></div>
+        <!-- experience auto-increments every January 1 (started 1999) -->
+        <div class="stat reveal"><div class="num"><span class="count exp-years" data-start-year="1999">0</span></div><div class="lbl">Metų patirties</div></div>
         <div class="stat reveal"><div class="num"><span class="count" data-target="3">0</span></div><div class="lbl">Apskritys: Vilnius, Kaunas, Alytus</div></div>
         <div class="stat reveal"><div class="num">20–50</div><div class="lbl">Metų tarnauja gręžinys</div></div>
       </div>
@@ -382,6 +382,10 @@ const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+document.querySelectorAll('.exp-years').forEach(el => {
+  el.dataset.target = new Date().getFullYear() - parseInt(el.dataset.startYear, 10);
+});
 
 const countIo = new IntersectionObserver(entries => {
   entries.forEach(e => {
