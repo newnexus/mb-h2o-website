@@ -74,15 +74,22 @@ header {
 }
 .wave { display: block; width: 100%; margin-top: -1px; }
 
-/* ---- Stats band ---- */
-.stats { padding: 3rem 0 0.5rem; }
+/* ---- Stats band (cyan wave) ---- */
+.stats { padding: 0; background: linear-gradient(135deg, var(--blue), var(--aqua)); color: #fff; }
+.stats-inner { padding: 2.2rem 0 2.6rem; }
 .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1.2rem; text-align: center; }
-.stat .num {
-  font-size: clamp(2.2rem, 5vw, 3rem); font-weight: 800; line-height: 1.1;
-  background: linear-gradient(135deg, var(--blue), var(--aqua));
-  -webkit-background-clip: text; background-clip: text; color: transparent;
+.stat .num { font-size: clamp(2.2rem, 5vw, 3rem); font-weight: 800; line-height: 1.1; color: #fff; text-shadow: 0 2px 10px rgba(11, 36, 71, 0.25); }
+.stat .lbl { color: #e2f5ff; font-weight: 600; margin-top: 0.3rem; font-size: 0.95rem; }
+.wave-edge {
+  height: 44px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 48" preserveAspectRatio="none"><path d="M0,24 C160,48 320,4 480,24 C640,44 800,2 960,24 L960,0 L0,0 Z" fill="%23ffffff"/></svg>');
+  background-repeat: repeat-x;
+  background-size: 960px 100%;
+  animation: waveScroll 16s linear infinite;
 }
-.stat .lbl { color: var(--ink-dim); font-weight: 600; margin-top: 0.3rem; font-size: 0.95rem; }
+.wave-edge.bottom { transform: rotate(180deg); animation-duration: 22s; animation-direction: reverse; }
+@keyframes waveScroll { from { background-position-x: 0; } to { background-position-x: 960px; } }
+@media (prefers-reduced-motion: reduce) { .wave-edge { animation: none; } }
 
 /* ---- Sections ---- */
 section { padding: 4.5rem 0; }
@@ -224,14 +231,19 @@ footer { background: var(--navy); color: #9db4cf; padding: 2rem 0; font-size: 0.
 
 <main>
   <section class="stats" id="skaiciai">
-    <div class="wrap">
-      <div class="stats-grid">
-        <div class="stat reveal"><div class="num"><span class="count" data-target="73">0</span></div><div class="lbl">Įrengti gręžiniai</div></div>
-        <!-- experience auto-increments every January 1 (started 1999) -->
-        <div class="stat reveal"><div class="num"><span class="count exp-years" data-start-year="1999">0</span></div><div class="lbl">Metų patirties</div></div>
-        <div class="stat reveal"><div class="num">1–3</div><div class="lbl">Dienos iki švaraus vandens</div></div>
+    <div class="wave-edge"></div>
+    <div class="stats-inner">
+      <div class="wrap">
+        <div class="stats-grid">
+          <div class="stat reveal"><div class="num"><span class="count" data-target="73">0</span></div><div class="lbl">Įrengti gręžiniai</div></div>
+          <!-- experience auto-increments every January 1 (started 1999) -->
+          <div class="stat reveal"><div class="num"><span class="count exp-years" data-start-year="1999">0</span></div><div class="lbl">Metų patirties</div></div>
+          <!-- TODO: estimate (73 wells x ~100m avg) - confirm real figure with Antanas -->
+          <div class="stat reveal"><div class="num"><span class="count" data-target="7300">0</span>+</div><div class="lbl">Metrų išgręžta</div></div>
+        </div>
       </div>
     </div>
+    <div class="wave-edge bottom"></div>
   </section>
 
   <section id="paslaugos">
@@ -393,7 +405,7 @@ const countIo = new IntersectionObserver(entries => {
     const el = e.target, target = parseInt(el.dataset.target, 10), dur = 1300, t0 = performance.now();
     const tick = now => {
       const p = Math.min((now - t0) / dur, 1);
-      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))).toLocaleString('lt-LT');
       if (p < 1) requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
