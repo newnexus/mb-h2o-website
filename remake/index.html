@@ -72,7 +72,6 @@ header {
   background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(49, 183, 233, 0.35);
   border-radius: 999px; padding: 0.45rem 1.1rem; font-size: 0.9rem; font-weight: 600; color: #e6f2fc;
 }
-.wave { display: block; width: 100%; margin-top: -1px; }
 
 /* ---- Stats band (cyan wave) ---- */
 .stats { padding: 0; background: linear-gradient(135deg, var(--blue), var(--aqua)); color: #fff; }
@@ -82,12 +81,16 @@ header {
 .stat .lbl { color: #e2f5ff; font-weight: 600; margin-top: 0.3rem; font-size: 0.95rem; }
 .wave-edge {
   height: 44px;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 48" preserveAspectRatio="none"><path d="M0,24 C160,48 320,4 480,24 C640,44 800,2 960,24 L960,0 L0,0 Z" fill="%23ffffff"/></svg>');
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 48" preserveAspectRatio="none"><path d="M0,24 C160,48 320,4 480,24 C640,44 800,2 960,24 L960,0 L0,0 Z" fill="%230b2447"/></svg>');
   background-repeat: repeat-x;
   background-size: 960px 100%;
   animation: waveScroll 16s linear infinite;
 }
-.wave-edge.bottom { transform: rotate(180deg); animation-duration: 22s; animation-direction: reverse; }
+.wave-edge.bottom {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 48" preserveAspectRatio="none"><path d="M0,24 C160,48 320,4 480,24 C640,44 800,2 960,24 L960,0 L0,0 Z" fill="%23ffffff"/></svg>');
+  transform: rotate(180deg); animation-duration: 22s; animation-direction: reverse;
+}
+.stat .num.water { font-size: clamp(1.5rem, 3.6vw, 2.3rem); padding-top: 0.45rem; }
 @keyframes waveScroll { from { background-position-x: 0; } to { background-position-x: 960px; } }
 @media (prefers-reduced-motion: reduce) { .wave-edge { animation: none; } }
 
@@ -224,9 +227,6 @@ footer { background: var(--navy); color: #9db4cf; padding: 2rem 0; font-size: 0.
       <span class="chip">✔ Padedame gauti leidimus</span>
     </div>
   </div>
-  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0,40 C240,80 480,0 720,25 C960,50 1200,15 1440,45 L1440,70 L0,70 Z" fill="#ffffff"/>
-  </svg>
 </div>
 
 <main>
@@ -238,8 +238,9 @@ footer { background: var(--navy); color: #9db4cf; padding: 2rem 0; font-size: 0.
           <div class="stat reveal"><div class="num"><span class="count" data-target="73">0</span></div><div class="lbl">Įrengti gręžiniai</div></div>
           <!-- experience auto-increments every January 1 (started 1999) -->
           <div class="stat reveal"><div class="num"><span class="count exp-years" data-start-year="1999">0</span></div><div class="lbl">Metų patirties</div></div>
-          <!-- TODO: estimate (73 wells x ~100m avg) - confirm real figure with Antanas -->
-          <div class="stat reveal"><div class="num"><span class="count" data-target="7300">0</span>+</div><div class="lbl">Metrų išgręžta</div></div>
+          <!-- Estimate: 73 wells accruing linearly since 1999 (median well ~13.5y active)
+               x 300 L/day per household. Ticks live at ~0.25 L/s. -->
+          <div class="stat reveal"><div class="num water"><span id="waterCount">0</span> L</div><div class="lbl">Litrų vandens patiekta</div></div>
         </div>
       </div>
     </div>
@@ -412,6 +413,36 @@ const countIo = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.5 });
 document.querySelectorAll('.count').forEach(el => countIo.observe(el));
+
+// Live water counter: 73 wells accrued linearly since 1999, 300 L/day/household
+(() => {
+  const WELLS = 73, START_YEAR = 1999, LITRES_PER_DAY = 300;
+  const el = document.getElementById('waterCount');
+  const yearsMs = Date.now() - new Date(START_YEAR, 0, 1).getTime();
+  const years = yearsMs / (365.25 * 24 * 3600 * 1000);
+  const baseLitres = WELLS * (years / 2) * 365.25 * LITRES_PER_DAY; // median well active years/2
+  const ratePerSec = WELLS * LITRES_PER_DAY / 86400;
+  const t0 = Date.now();
+  const fmt = n => Math.floor(n).toLocaleString('lt-LT');
+  let started = false;
+  const waterIo = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting || started) return;
+      started = true; waterIo.unobserve(el);
+      const animT0 = performance.now(), dur = 1600;
+      const tick = now => {
+        const p = Math.min((now - animT0) / dur, 1);
+        el.textContent = fmt(baseLitres * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(tick);
+        else setInterval(() => {
+          el.textContent = fmt(baseLitres + (Date.now() - t0) / 1000 * ratePerSec);
+        }, 1000);
+      };
+      requestAnimationFrame(tick);
+    });
+  }, { threshold: 0.5 });
+  waterIo.observe(el);
+})();
 </script>
 <script data-goatcounter="https://mbh2o.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
