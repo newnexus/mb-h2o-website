@@ -1,0 +1,74 @@
+[
+    {
+        "question": "Kokia vandens gręžinio kaina?",
+        "answer": "Vandens gręžinio kaina priklauso nuo gylio, grunto tipo ir vietovės. Vidutiniškai kaina svyruoja nuo 50 iki 100 EUR už metrą. Susisiekite su mumis dėl tikslios kainos!",
+        "foldout_icon": "assets/images/icons/arrow-down.svg",
+        "animations": {
+            "question": [{"type": "fade-in"}],
+            "answer": [{"type": "slide-down", "amount": 500}]
+        }
+    },
+    {
+        "question": "Kiek laiko trunka gręžinio įrengimas?",
+        "answer": "Paprastai gręžinio įrengimas užtrunka nuo 1 iki 3 dienų, priklausomai nuo gręžinio gylio ir grunto sąlygų.",
+        "foldout_icon": "assets/images/icons/arrow-down.svg",
+        "animations": {
+            "question": [{"type": "fade-in"}],
+            "answer": [{"type": "slide-down", "amount": 500}]
+        }
+    },
+    {
+        "question": "Ar reikalingi leidimai vandens gręžiniui?",
+        "answer": "Taip, Lietuvoje reikalingas leidimas vandens gręžiniui. Mes padedame klientams sutvarkyti visus reikiamus dokumentus.",
+        "foldout_icon": "assets/images/icons/arrow-down.svg",
+        "animations": {
+            "question": [{"type": "fade-in"}],
+            "answer": [{"type": "slide-down", "amount": 500}]
+        }
+    },
+    {
+        "question": "Koks yra gręžinio tarnavimo laikas?",
+        "answer": "Tinkamai įrengtas ir prižiūrimas vandens gręžinys gali tarnauti 20–50 metų ar ilgiau, priklausomai nuo eksploatacijos.",
+        "foldout_icon": "assets/images/icons/arrow-down.svg",
+        "animations": {
+            "question": [{"type": "fade-in"}],
+            "answer": [{"type": "slide-down", "amount": 500}]
+        }
+    },
+    {
+        "question": "Ar atliekate gręžinių priežiūrą?",
+        "answer": "Taip, mes teikiame gręžinių priežiūros paslaugas, įskaitant valymą, remontą ir vandens kokybės tikrinimą.",
+        "foldout_icon": "assets/images/icons/arrow-down.svg",
+        "animations": {
+            "question": [{"type": "fade-in"}],
+            "answer": [{"type": "slide-down", "amount": 500}]
+        }
+    },
+    {
+        "question": "Kokios gręžinių rūšys egzistuoja?",
+        "answer": "Yra įvairių tipų gręžiniai: arteziniai, gruntiniai, geoterminiai. Kiekvienas tipas tinka skirtingiems poreikiams ir grunto sąlygoms.",
+        "foldout_icon": "assets/images/icons/arrow-down.svg",
+        "animations": {
+            "question": [{"type": "fade-in"}],
+            "answer": [{"type": "slide-down", "amount": 500}]
+        }
+    },
+    {
+        "question": "Kaip pasirinkti tinkamą gręžinio vietą?",
+        "answer": "Vieta parenkama atsižvelgiant į geologines sąlygas, vandens prieigą ir kliento poreikius. Atliekame vietos tyrimus prieš darbus.",
+        "foldout_icon": "assets/images/icons/arrow-down.svg",
+        "animations": {
+            "question": [{"type": "fade-in"}],
+            "answer": [{"type": "slide-down", "amount": 500}]
+        }
+    },
+    {
+        "question": "Ar gręžiniai veikia žiemą?",
+        "answer": "Taip, tinkamai izoliuoti gręžiniai veikia ir žiemą. Mes įrengiame sistemas, atsparias šalčiui.",
+        "foldout_icon": "assets/images/icons/arrow-down.svg",
+        "animations": {
+            "question": [{"type": "fade-in"}],
+            "answer": [{"type": "slide-down", "amount": 500}]
+        }
+    }
+]

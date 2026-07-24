@@ -1,0 +1,113 @@
+[
+    {
+        "title": "Vandens Gręžinių Kainos Lietuvoje",
+        "text": "MB H2O taiko fiksuotą kainą už gręžinių įrengimą, skirtingai nuo kainos už metrą. Tai užtikrina skaidrumą ir apsaugo nuo netikėtų išlaidų. Susisiekite dėl individualaus pasiūlymo.",
+        "media_type": "image",
+        "media_src": "assets/images/well-prices.webp",
+        "animations": {
+            "media": [
+                {
+                    "type": "scale-up",
+                    "amount": 0.2,
+                    "duration": 0.25
+                },
+                {
+                    "type": "slide-in",
+                    "direction": "right",
+                    "amount": 50,
+                    "duration": 0.25
+                }
+            ],
+            "title": [
+                {
+                    "type": "slide-in",
+                    "direction": "left",
+                    "amount": 50,
+                    "duration": 0.25
+                }
+            ],
+            "text": [
+                {
+                    "type": "slide-in",
+                    "direction": "bottom",
+                    "amount": 50,
+                    "duration": 0.25
+                }
+            ]
+        }
+    },
+    {
+        "title": "Kur Dirbame Lietuvoje: Vandens Gręžiniai Vilniuje, Kaune ir Alytuje",
+        "text": "MB H2O daugiausia aptarnauja pietų ir rytų Lietuvą: Vilniaus, Kauno, Alytaus ir aplinkines apskritis. Teikiame gręžinių įrengimą ir priežiūrą. Susisiekite, jei esate šioje zonoje!",
+        "media_type": "image",
+        "media_src": "assets/images/map.svg",
+        "animations": {
+            "media": [
+                {
+                    "type": "scale-up",
+                    "amount": 0.2,
+                    "duration": 0.25
+                },
+                {
+                    "type": "slide-in",
+                    "direction": "left",
+                    "amount": 50,
+                    "duration": 0.25
+                }
+            ],
+            "title": [
+                {
+                    "type": "slide-in",
+                    "direction": "right",
+                    "amount": 50,
+                    "duration": 0.25
+                }
+            ],
+            "text": [
+                {
+                    "type": "slide-in",
+                    "direction": "bottom",
+                    "amount": 50,
+                    "duration": 0.25
+                }
+            ]
+        }
+    },
+    {
+        "title": "Gręžinys geriau nei šulinys",
+        "text": "Šulinys ir gręžinys – du skirtingi vandens šaltiniai. Šulinys yra negilus (iki 10–15 m), kasamas rankomis, pasiekiantis paviršinį vandenį, kuris lengvai užsiteršia. Gręžinys – gilus (50–200 m), profesionaliai gręžiamas, tiekiantis švaresnį, stabilesnį vandenį iš apsaugotų sluoksnių. MB H2O specializuojasi gręžiniuose, užtikrindami kokybišką vandenį namams ar verslui.",
+        "media_type": "image",
+        "media_src": "assets/images/well-differences.webp",
+        "animations": {
+            "media": [
+                {
+                    "type": "scale-up",
+                    "amount": 0.2,
+                    "duration": 0.25
+                },
+                {
+                    "type": "slide-in",
+                    "direction": "left",
+                    "amount": 50,
+                    "duration": 0.25
+                }
+            ],
+            "title": [
+                {
+                    "type": "slide-in",
+                    "direction": "right",
+                    "amount": 50,
+                    "duration": 0.25
+                }
+            ],
+            "text": [
+                {
+                    "type": "slide-in",
+                    "direction": "bottom",
+                    "amount": 50,
+                    "duration": 0.25
+                }
+            ]
+        }
+    }
+]

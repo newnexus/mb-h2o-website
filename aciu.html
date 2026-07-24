@@ -1,36 +1,153 @@
 <!DOCTYPE html>
 <html lang="lt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex">
-    <title>MB H2O - Ačiū!</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Ačiū už užklausą | MB H2O</title>
+<meta name="description" content="Ačiū — Jūsų užklausa gauta. MB H2O susisieks su Jumis artimiausiu metu.">
+<link rel="icon" href="favicon.ico">
+<style>
+:root {
+  --navy: #0b2447;
+  --blue: #0682b4;
+  --aqua: #31b7e9;
+  --yellow: #ffec3d;
+  --ink: #16263c;
+  --ink-dim: #53637a;
+  --paper: #ffffff;
+  --mist: #f2f7fb;
+  --line: #dde8f1;
+  --radius: 14px;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--ink);
+  background: var(--mist);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--blue); }
+
+header { background: var(--navy); border-bottom: 1px solid rgba(49,183,233,0.25); }
+.nav {
+  max-width: 1100px; margin: 0 auto;
+  padding: 0.65rem 1.25rem;
+  display: flex; align-items: center;
+}
+.brand {
+  display: flex; align-items: center; gap: 0.6rem;
+  color: #fff; text-decoration: none;
+  font-weight: 700; letter-spacing: 0.02em;
+}
+.brand img { height: 38px; width: auto; }
+
+main {
+  flex: 1;
+  display: flex; align-items: center; justify-content: center;
+  padding: 3rem 1.25rem 4rem;
+}
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 34px rgba(11,36,71,0.10);
+  max-width: 560px; width: 100%;
+  padding: 2.6rem 2rem;
+  text-align: center;
+}
+.tick {
+  width: 76px; height: 76px; margin: 0 auto 1.4rem;
+  border-radius: 50%;
+  background: linear-gradient(180deg, var(--aqua), var(--blue));
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 20px rgba(6,130,180,0.35);
+}
+.tick svg { width: 38px; height: 38px; }
+h1 {
+  margin: 0 0 0.7rem;
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+  color: var(--navy);
+  text-wrap: balance;
+}
+p { margin: 0 0 1rem; color: var(--ink-dim); line-height: 1.6; }
+.urgent {
+  margin-top: 1.6rem; padding-top: 1.4rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.95rem;
+}
+.phone {
+  display: inline-block; margin-top: 0.4rem;
+  font-size: 1.25rem; font-weight: 700;
+  color: var(--navy); text-decoration: none;
+}
+.phone:hover { color: var(--blue); }
+.actions { margin-top: 1.8rem; }
+.btn {
+  display: inline-block;
+  background: var(--yellow); color: var(--navy);
+  font-weight: 700; text-decoration: none;
+  padding: 0.85rem 1.6rem; border-radius: 999px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(11,36,71,0.18); }
+.btn:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
+
+footer {
+  background: var(--navy); color: #b9cbe0;
+  padding: 1.1rem 1.25rem; text-align: center; font-size: 0.9rem;
+}
+footer a { color: var(--aqua); }
+</style>
 </head>
 <body>
-    <header id="header">
-    <div class="logo">
-        <img src="assets/images/logo.png" alt="MB H2O Logo">
-        <h1>MB H2O</h1>
-    </div>
-    <nav>
-        <ul>
-            <li><a href="index.html#home"><span>Pagrindinys</span></a></li>
-            <li><a href="index.html#services"><span>Vandens Gręžiniai</span></a></li>
-            <li><a href="faq.html#faq"><span>D.U.K</span></a></li>
-            <li><a href="index.html#contact"><span>Kontaktai</span></a></li>
-        </ul>
-    </nav>
+
+<header>
+  <nav class="nav">
+    <a class="brand" href="index.html">
+      <img src="assets/images/logo.png" alt="MB H2O logotipas">
+      MB H2O
+    </a>
+  </nav>
 </header>
-    <main>
-        <section class="hero">
-            <div class="hero-title">Ačiū!<br>Jūsų užklausa išsiųsta</div>
-            <p style="text-align: center; font-size: 1.2rem; margin-top: 16px;">
-                Atsakysime Jums kaip įmanoma greičiau.
-            </p>
-            <a href="index.html" class="call-to-action">Grįžti į pagrindinį puslapį</a>
-        </section>
-    </main>
-    <script data-goatcounter="https://mbh2o.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+
+<main>
+  <div class="card">
+    <div class="tick" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 12.5 L9.5 18 L20 6.5"/>
+      </svg>
+    </div>
+
+    <h1>Ačiū už užklausą!</h1>
+    <p>
+      Jūsų žinutė sėkmingai gauta. Susisieksime su Jumis artimiausiu metu —
+      paprastai per <strong>1 darbo dieną</strong>.
+    </p>
+    <p>
+      Jei nurodėte telefono numerį, paskambinsime; kitu atveju atsakysime el. paštu.
+    </p>
+
+    <div class="urgent">
+      Reikia skubiai?<br>
+      <a class="phone" href="tel:+37069859318">📞 +370 698 59318</a>
+    </div>
+
+    <div class="actions">
+      <a class="btn" href="index.html">Grįžti į pradžią</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  MB H2O — vandens gręžiniai · <a href="index.html#kontaktai">Kontaktai</a>
+</footer>
+
+<script data-goatcounter="https://mbh2o.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>
