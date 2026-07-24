@@ -255,7 +255,7 @@ footer { background: var(--navy); color: #9db4cf; padding: 2rem 0; font-size: 0.
           <!-- experience auto-increments every January 1 (started 1999) -->
           <div class="stat reveal"><div class="num"><span class="count exp-years" data-start-year="1999">0</span></div><div class="lbl">Metų patirties</div></div>
           <!-- Estimate: 100+ wells accruing linearly since 1999 (median well ~13.5y active)
-               x 300 L/day per household. Ticks live at ~0.35 L/s.
+               x 175 L/day per household (conservative rural draw). Ends ~88 mln, ticks live.
                "100+" is deliberate: exact count is unknown and this never needs updating. -->
           <div class="stat reveal"><div class="num water"><span id="waterCount">0</span> L</div><div class="lbl">Litrų vandens patiekta</div></div>
         </div>
@@ -436,9 +436,9 @@ const countIo = new IntersectionObserver(entries => {
 }, { threshold: 0.5 });
 document.querySelectorAll('.count').forEach(el => countIo.observe(el));
 
-// Live water counter: 100 wells accrued linearly since 1999, 300 L/day/household
+// Live water counter: 100 wells accrued linearly since 1999, 175 L/day/household (conservative rural draw)
 (() => {
-  const WELLS = 100, START_YEAR = 1999, LITRES_PER_DAY = 300;
+  const WELLS = 100, START_YEAR = 1999, LITRES_PER_DAY = 175;
   const el = document.getElementById('waterCount');
   const yearsMs = Date.now() - new Date(START_YEAR, 0, 1).getTime();
   const years = yearsMs / (365.25 * 24 * 3600 * 1000);
