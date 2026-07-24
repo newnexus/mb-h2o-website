@@ -251,11 +251,12 @@ footer { background: var(--navy); color: #9db4cf; padding: 2rem 0; font-size: 0.
     <div class="stats-inner">
       <div class="wrap">
         <div class="stats-grid">
-          <div class="stat reveal"><div class="num"><span class="count" data-target="73">0</span></div><div class="lbl">Įrengti gręžiniai</div></div>
+          <div class="stat reveal"><div class="num"><span class="count" data-target="100">0</span>+</div><div class="lbl">Įrengti gręžiniai</div></div>
           <!-- experience auto-increments every January 1 (started 1999) -->
           <div class="stat reveal"><div class="num"><span class="count exp-years" data-start-year="1999">0</span></div><div class="lbl">Metų patirties</div></div>
-          <!-- Estimate: 73 wells accruing linearly since 1999 (median well ~13.5y active)
-               x 300 L/day per household. Ticks live at ~0.25 L/s. -->
+          <!-- Estimate: 100+ wells accruing linearly since 1999 (median well ~13.5y active)
+               x 300 L/day per household. Ticks live at ~0.35 L/s.
+               "100+" is deliberate: exact count is unknown and this never needs updating. -->
           <div class="stat reveal"><div class="num water"><span id="waterCount">0</span> L</div><div class="lbl">Litrų vandens patiekta</div></div>
         </div>
       </div>
@@ -366,7 +367,11 @@ footer { background: var(--navy); color: #9db4cf; padding: 2rem 0; font-size: 0.
       <div class="contact-grid">
         <div class="form-card reveal">
           <h3>Užklausos forma</h3>
-          <form action="https://formsubmit.co/greziniaih2o@gmail.com" method="POST">
+          <!-- NOTE: formsubmit.co requires a one-time activation per address.
+               Submitting this form the first time sends an activation link to the
+               address below — it MUST be clicked or submissions are silently dropped.
+               Do the activation deliberately before the site goes live. -->
+          <form action="https://formsubmit.co/info@mb-h2o.lt" method="POST">
             <input type="hidden" name="_subject" value="Užklausa iš mb-h2o.lt svetainės">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_next" value="https://mb-h2o.lt/aciu.html">
@@ -381,7 +386,7 @@ footer { background: var(--navy); color: #9db4cf; padding: 2rem 0; font-size: 0.
           <h3>MB H2O</h3>
           <ul>
             <li><strong>Telefonas</strong> <a class="phone-big" href="tel:+37069859318">+370 698 59318</a></li>
-            <li><strong>El. paštas</strong> <a href="mailto:greziniaih2o@gmail.com">greziniaih2o@gmail.com</a></li>
+            <li><strong>El. paštas</strong> <a href="mailto:info@mb-h2o.lt">info@mb-h2o.lt</a></li>
             <li><strong>Instagram</strong> <a href="https://www.instagram.com/mbh2ogreziniai/" target="_blank" rel="noopener">@mbh2ogreziniai</a></li>
             <li><strong>Darbo laikas</strong> Darbo dienomis 9:00–17:00<br>Savaitgaliais 12:00–19:00</li>
             <li><strong>Adresas</strong> Burbiškių g. 40-14, LT-02198 Vilnius</li>
@@ -431,9 +436,9 @@ const countIo = new IntersectionObserver(entries => {
 }, { threshold: 0.5 });
 document.querySelectorAll('.count').forEach(el => countIo.observe(el));
 
-// Live water counter: 73 wells accrued linearly since 1999, 300 L/day/household
+// Live water counter: 100 wells accrued linearly since 1999, 300 L/day/household
 (() => {
-  const WELLS = 73, START_YEAR = 1999, LITRES_PER_DAY = 300;
+  const WELLS = 100, START_YEAR = 1999, LITRES_PER_DAY = 300;
   const el = document.getElementById('waterCount');
   const yearsMs = Date.now() - new Date(START_YEAR, 0, 1).getTime();
   const years = yearsMs / (365.25 * 24 * 3600 * 1000);
